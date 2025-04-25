@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Tabs,
   Tab,
@@ -115,8 +115,10 @@ export default function Dashboard() {
             <Tab role='tab' label="Metrics View" />
             <Tab role='tab' label="Analytics View" />
           </Tabs>
-          {selectedUser}
-          <Button variant="contained" onClick={() => setUserDialogOpen(true)}>My Members</Button>
+          <div style={{ display: 'flex', gap: 7, alignItems: 'center' }}>
+            Active User: {mockUsers.find(user => user.id === selectedUser)?.name}
+            <Button variant="contained" onClick={() => setUserDialogOpen(true)}>My Members</Button>
+          </div>
         </Box>
 
         <Card sx={{ mb: 4 }}>

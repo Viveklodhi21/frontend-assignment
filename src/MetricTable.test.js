@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom'; // ✅ this is essential
+import '@testing-library/jest-dom';
 import MetricsTable from './components/MetricTable';
 beforeAll(() => {
     jest.spyOn(console, 'error').mockImplementation((msg) => {

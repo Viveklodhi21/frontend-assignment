@@ -11,11 +11,6 @@ jest.mock("../src/components/MetricTable.tsx", () => (props) => (
   <div data-testid="metric-table">Metrics Table Rendered</div>
 ));
 
-// jest.mock("@mui/x-date-pickers-pro/AdapterDateFns", () => ({
-//   AdapterDateFns: jest.fn(),
-// }));
-
-// Wrap render in helper if you want to reuse
 const renderWithProvider = (ui) => {
   return render(
     <LocalizationProvider dateAdapter={AdapterDayjs}>{ui}</LocalizationProvider>
@@ -53,7 +48,7 @@ describe("Dashboard Component", () => {
 
   test("updates sector filter", async () => {
     render(<Dashboard />);
-    const select = screen.getByRole("combobox", { name: /sector/i }); // Use the label associated with the select
+    const select = screen.getByRole("combobox", { name: /sector/i });
     userEvent.click(select);
 
     const option = await screen.findByRole("option", { name: "Retail" });
